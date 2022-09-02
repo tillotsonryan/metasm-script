@@ -2,7 +2,7 @@ require 'metasm'
 require 'rex'
 payload = <<-EOS
 	mov al, 0x1
-	int 0x80
+	int 0x80 # let return code be garbage
 EOS
 
 sc = Metasm::Shellcode.assemble(Metasm::X86.new, payload).encode_string
